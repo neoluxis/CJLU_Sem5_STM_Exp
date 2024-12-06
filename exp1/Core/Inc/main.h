@@ -27,7 +27,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32h7xx_hal.h"
+#include "stm32f1xx_hal.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -57,22 +57,16 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define KEY1_Pin GPIO_PIN_3
-#define KEY1_GPIO_Port GPIOE
-#define KEY1_EXTI_IRQn EXTI3_IRQn
-#define KEY0_Pin GPIO_PIN_4
-#define KEY0_GPIO_Port GPIOE
-#define KEY0_EXTI_IRQn EXTI4_IRQn
-#define LED1_Pin GPIO_PIN_5
-#define LED1_GPIO_Port GPIOE
-#define KEY_MOD_Pin GPIO_PIN_13
-#define KEY_MOD_GPIO_Port GPIOC
-#define KEY_MOD_EXTI_IRQn EXTI15_10_IRQn
-#define KEY_UP_Pin GPIO_PIN_0
+#define KEY1_Pin GPIO_PIN_1
+#define KEY1_GPIO_Port GPIOA
+#define KEY0_Pin GPIO_PIN_3
+#define KEY0_GPIO_Port GPIOA
+#define KEY_UP_Pin GPIO_PIN_5
 #define KEY_UP_GPIO_Port GPIOA
-#define KEY_UP_EXTI_IRQn EXTI0_IRQn
-#define LED0_Pin GPIO_PIN_5
-#define LED0_GPIO_Port GPIOB
+#define LED0_Pin GPIO_PIN_6
+#define LED0_GPIO_Port GPIOC
+#define LED1_Pin GPIO_PIN_8
+#define LED1_GPIO_Port GPIOC
 
 /* USER CODE BEGIN Private defines */
 

@@ -24,30 +24,29 @@
 
 /* USER CODE END 0 */
 
-IWDG_HandleTypeDef hiwdg1;
+IWDG_HandleTypeDef hiwdg;
 
-/* IWDG1 init function */
-void MX_IWDG1_Init(void)
+/* IWDG init function */
+void MX_IWDG_Init(void)
 {
 
-  /* USER CODE BEGIN IWDG1_Init 0 */
+  /* USER CODE BEGIN IWDG_Init 0 */
 
-  /* USER CODE END IWDG1_Init 0 */
+  /* USER CODE END IWDG_Init 0 */
 
-  /* USER CODE BEGIN IWDG1_Init 1 */
+  /* USER CODE BEGIN IWDG_Init 1 */
 
-  /* USER CODE END IWDG1_Init 1 */
-  hiwdg1.Instance = IWDG1;
-  hiwdg1.Init.Prescaler = IWDG_PRESCALER_4;
-  hiwdg1.Init.Window = 4095;
-  hiwdg1.Init.Reload = 4095;
-  if (HAL_IWDG_Init(&hiwdg1) != HAL_OK)
+  /* USER CODE END IWDG_Init 1 */
+  hiwdg.Instance = IWDG;
+  hiwdg.Init.Prescaler = IWDG_PRESCALER_32;
+  hiwdg.Init.Reload = 1250;
+  if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN IWDG1_Init 2 */
+  /* USER CODE BEGIN IWDG_Init 2 */
 
-  /* USER CODE END IWDG1_Init 2 */
+  /* USER CODE END IWDG_Init 2 */
 
 }
 
