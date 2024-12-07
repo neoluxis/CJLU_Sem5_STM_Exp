@@ -93,14 +93,14 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
    */
 	if (task == TASK_5) {
 		HAL_IWDG_Refresh(&hiwdg);
-		HAL_UART_Transmit(&huart1, "Feed dog\n", 9, 10);
+		HAL_UART_Transmit(&huart1, (uint8_t*)"Feed dog\n", 9, 10);
 	}else if (task == TASK_3) {
 		if (GPIO_Pin != KEY0_Pin) {
 			Delay();
 			if ((HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == 0) || 
 				HAL_GPIO_ReadPin(KEY_UP_GPIO_Port, KEY_UP_Pin) == 1) {
 					HAL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
-					HAL_UART_Transmit(&huart1, "LED0 Tog\n", 9, 10);
+					HAL_UART_Transmit(&huart1, (uint8_t*)"LED0 Tog\n", 9, 10);
 				}
 		}
 		if (GPIO_Pin != KEY1_Pin) {
@@ -108,7 +108,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 			if ((HAL_GPIO_ReadPin(KEY0_GPIO_Port, KEY0_Pin) == 0) || 
 				HAL_GPIO_ReadPin(KEY_UP_GPIO_Port, KEY_UP_Pin) == 1) {
 					HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
-					HAL_UART_Transmit(&huart1, "LED1 Tog\n", 9, 10);
+					HAL_UART_Transmit(&huart1, (uint8_t*)"LED1 Tog\n", 9, 10);
 				}
 		}
 	}
@@ -155,7 +155,7 @@ int main(void)
 		HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
 		HAL_Delay(200);
-		HAL_UART_Transmit(&huart1, "Init\n", 5, 10);
+		HAL_UART_Transmit(&huart1, (uint8_t*)"Init\n", 5, 10);
 		HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
 	}
@@ -167,7 +167,7 @@ int main(void)
   {
 		if (task == TASK_5) {
 			HAL_Delay(100);
-			HAL_UART_Transmit(&huart1, "while\n", 6, 10);
+			HAL_UART_Transmit(&huart1, (uint8_t*)"loop\n", 5, 10);
 		} else if (task == TASK_1) {
 			HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
