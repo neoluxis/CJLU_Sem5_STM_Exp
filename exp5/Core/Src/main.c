@@ -102,9 +102,13 @@ int main(void)
   MX_IWDG_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-	HAL_Delay(300);
+	
+	HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
+	HAL_Delay(200);
 	HAL_UART_Transmit(&huart1, "Init\n", 5, 10);
 	HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
 		
   /* USER CODE END 2 */
 
@@ -112,7 +116,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		HAL_Delay(3);
+		HAL_Delay(100);
+		HAL_UART_Transmit(&huart1, "while\n", 6, 10);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
