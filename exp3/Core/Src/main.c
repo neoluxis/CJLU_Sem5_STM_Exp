@@ -54,6 +54,11 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void Delay(void) {
+	uint32_t u = 1000000;
+	while (u--);
+}
+
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   /* Prevent unused argument(s) compilation warning */
@@ -62,10 +67,16 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
            the HAL_GPIO_EXTI_Callback could be implemented in the user file
    */
 	if (GPIO_Pin != KEY0_Pin) {
-		HAL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
+		Delay();
+		if ((HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == 0) || 
+			HAL_GPIO_ReadPin(KEY_UP_GPIO_Port, KEY_UP_Pin) == 1) 
+				HAL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
 	}
 	if (GPIO_Pin != KEY1_Pin) {
-		HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+		Delay();
+		if ((HAL_GPIO_ReadPin(KEY0_GPIO_Port, KEY0_Pin) == 0) || 
+			HAL_GPIO_ReadPin(KEY_UP_GPIO_Port, KEY_UP_Pin) == 1) 
+				HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
 	}
 }
 
